@@ -1,0 +1,41 @@
+#include <stdio.h>
+int main()
+{
+	int L,n,i,t,d1,d2,r1,g1,r2,g2,k=1,a;
+	scanf("%d %d/n",&n,&L);
+	for (i=1;i<=n;i++)
+	{
+		if (k==1)
+		{
+			scanf("%d %d %d",&d1,&r1,&g1);
+			scanf("%d %d %d",&d2,&r2,&g2);	
+			k++;
+			i++;
+			t = d1;
+		}
+		else
+			scanf("%d %d %d",&d2,&r2,&g2);
+		a = t;
+		while (a >= (r1+g1))
+			a = a - (r1 + g1);
+		if (r1>a)
+			t = r1 - a + t;
+		t = t + ( d2 - d1 );
+		d1 = d2;
+		r1 = r2;
+		g1 = g2;
+	}
+	if (i>(n-1))
+	{
+		a = t;
+		while (a >= (r1+g1))
+			a = a - (r1 + g1);	
+		if (r1>a)
+			t = r1 - a + t;
+	}
+	t = t + ( L - d1 );
+	printf("%d",t);
+	
+	return 0;
+	
+}
